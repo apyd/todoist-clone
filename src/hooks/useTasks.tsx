@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { onSnapshot } from "firebase/firestore";
-import { format, differenceInDays, formatISO } from "date-fns";
 import { TASK_TYPES } from "../constants";
 import { getTaskQuery } from "../api/queries";
 import { Task } from "../models/models";
