@@ -5,6 +5,8 @@ import {
   FaRegCalendar,
 } from "react-icons/fa";
 
+import "./styles.scss";
+
 export const Sidebar = () => {
   return (
     <div className="sidebar" data-testid="sidebar">

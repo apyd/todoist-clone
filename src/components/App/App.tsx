@@ -1,5 +1,6 @@
-import { Header } from '../Layout/Header'
-import { Content } from '../Layout/Content'
+import { Header } from '../Layout/Header/Header'
+import { Content } from '../Layout/Content/Content'
+import './styles.scss'
 
 export const App = () => (
     <div className="App">

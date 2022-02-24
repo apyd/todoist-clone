@@ -1,0 +1,58 @@
+@import "../../../styles/_variables.scss";
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $navbar-bg;
+    height: $navbar-height;
+
+    &__list {
+        display: flex;
+        list-style: none;
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        position: relative;
+        background-color: $navbar-icons-bg-hover;
+        padding: 0;
+
+        &__input {
+            background-color: $navbar-icons-bg-hover;
+            height: 100%;
+            border: none;
+            border-radius: $border-radius;
+        }
+
+        &__icon {
+            position: absolute;
+            left: 10px;
+
+            fill: $navbar-icons-color;
+            width: $icon-size;
+            height: $icon-size;
+        }
+    }
+
+    li {
+        display: flex;
+        border: 1px solid $navbar-bg;
+        padding: .3rem;
+        margin: .3rem;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $navbar-icons-bg-hover;
+            border-radius: $border-radius;
+        }
+    }
+
+    .icon {
+        fill: $navbar-icons-color;
+        width: $icon-size;
+        height: $icon-size;
+    }
+}

@@ -1,0 +1,38 @@
+@import "../../../styles/_variables.scss";
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: $sidebar-bg;
+    width: 200px;
+    height: 100vh;
+    padding-top: 20px;
+    padding-left: 35px;
+
+    &--collapsed {
+        display: none;
+    }
+
+    &__category {
+        display: flex;
+        align-items: center;
+        padding: .8rem;
+        // margin: .8rem;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: $sidebar-icons-bg-hover;
+            border-radius: $border-radius;
+        }
+    }
+
+}
+
+.category {
+
+    &__icon {
+        width: $icon-size;
+        height: $icon-size;
+    }
+}
