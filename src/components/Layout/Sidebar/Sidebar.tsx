@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaChevronDown,
   FaInbox,
@@ -8,35 +9,57 @@ import {
 import "./styles.scss";
 
 export const Sidebar = () => {
+  const [projectsExpanded, setProjectsExpanded] = useState<boolean>(false);
+
   return (
     <div className="sidebar" data-testid="sidebar">
-      <ul className="sidebar__categories">
-        <li className="sidebar__category">
-          <span className="category__icon">
-            <FaInbox />
-          </span>
-          <span className="category__title">Inbox</span>
+      <ul className="sidebar__date-filters">
+        <li className="date-filter">
+          <div className="date-filter__label">
+            <span className="date-filter__wrapper">
+              <FaInbox className="date-filter__icon date-filter__icon--blue" />
+            </span>
+            <span className="date-filter__title">Inbox</span>
+          </div>
+          <span className="date-filter__amount">3</span>
         </li>
-        <li className="sidebar__category">
-          <span className="category__icon">
-            <FaRegCalendar />
-          </span>
-          <span className="category__title">Today</span>
+        <li className="date-filter">
+          <div className="date-filter__label">
+            <span className="date-filter__wrapper">
+              <FaRegCalendar className="date-filter__icon date-filter__icon--green" />
+            </span>
+            <span className="date-filter__title">Today</span>
+          </div>
+          <span className="date-filter__amount">3</span>
         </li>
-        <li className="sidebar__category">
-          <span className="category__icon">
-            <FaRegCalendarAlt />
-          </span>
-          <span className="category__title">Next 7 days</span>
+        <li className="date-filter">
+          <div className="date-filter__label">
+            <span className="date-filter__wrapper">
+              <FaRegCalendarAlt className="date-filter__icon date-filter__icon--purple" />
+            </span>
+            <span className="date-filter__title">Upcoming</span>
+          </div>
+          <span className="date-filter__amount"></span>
         </li>
       </ul>
-      <div className="sidebar__projects">
-        <header className="projects__header">
-          <FaChevronDown />
-          <h2 className="projects__heading">Projects</h2>
+      <div className="projects">
+        <header
+          className="projects__header"
+          onClick={() => setProjectsExpanded((prev) => (prev = !prev))}
+        >
+          <FaChevronDown
+            className={
+              projectsExpanded
+                ? "projects__icon"
+                : "projects__icon projects__icon--rotated"
+            }
+          />
+          <h4 className="projects__heading">Projects</h4>
         </header>
       </div>
-      <ul className="projects__list">Projects will be here</ul>
+      {projectsExpanded && (
+        <ul className="projects__list">Projects will be here</ul>
+      )}
     </div>
   );
 };
