@@ -20,63 +20,84 @@
         }
     }
 
-    .search-box {
+    &__item {
         display: flex;
-        align-items: center;
-        position: relative;
-        flex: 2;
-        min-width: 80px;
-        max-width: 500px;
-
-        &__input {
-            width: 100%;
-            padding: .5rem .3rem .5rem 2.5rem;
-            border: none;
-            border-radius: $border-radius;
-            color: $navbar-text-color;
-            background-color: $navbar-icons-bg-hover;
-            
-            &::placeholder {
-                color: inherit;
-                font-family: inherit;
-            }
-
-            &:hover, &:active, &:focus {
-                background-color: $navbar-icons-color;
-                color: $primary-text-color;
-                
-                & + .search-box__icon {
-                    fill: $primary-text-color;
-                }
-            }
-        }
-
-        &__icon {
-            position: absolute;
-            left: 10px;
-
-            fill: $navbar-icons-color;
-            width: $icon-size;
-            height: $icon-size;
-        }
-    }
-
-    li {
-        display: flex;
-        border: 1px solid $navbar-bg;
         padding: .3rem;
         margin: .3rem;
-
+        border: 1px solid transparent;
+        border-radius: $border-radius;
+        cursor: pointer;
+    
+        &--positioned {
+            position: absolute;
+            right: 0;
+        }
+    
         &:hover {
-            cursor: pointer;
             background-color: $navbar-icons-bg-hover;
-            border-radius: $border-radius;
         }
     }
+}
 
-    .icon {
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 2;
+    min-width: 80px;
+    max-width: 500px;
+    border-radius: $border-radius;
+    color: $navbar-icons-color;
+
+    &:hover, &:focus-within {
+        color: $primary-text-color;
+        background-color: $navbar-icons-color;
+
+        & .icon--search {
+            z-index: 5;
+            fill: $primary-text-color;
+        }
+
+        & .icon--clear {
+            fill: $primary-text-color;
+        }
+
+    }
+
+    &__input {
+        width: 100%;
+        position: relative;
+        padding: .5rem 3rem .5rem 2.5rem;
+        line-height: 1;
+        border: none;
+        border-radius: $border-radius;
+        background-color: inherit;
+        color: inherit;
+        
+        &::placeholder {
+            color: inherit;
+            font-family: inherit;
+        }
+    }
+}
+
+.icon {
+    fill: $navbar-icons-color;
+    width: $icon-size;
+    height: $icon-size;
+
+    &--clear {
         fill: $navbar-icons-color;
-        width: $icon-size;
+        transform: rotate(135deg);
+    }
+
+    &--search {
+        display: inline-block;
         height: $icon-size;
+        width: $icon-size;
+        position: absolute;
+        top: 50%;
+        left: .5rem;
+        transform: translate(-3%, -50%);
     }
 }
