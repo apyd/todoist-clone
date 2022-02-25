@@ -16,21 +16,22 @@ export const Header = () => {
           <li className="sidebar__toggle">
             <FaStream className="icon" />
           </li>
-          <li className="logo">
+          <li className="home">
             <FaHome className="icon" />
           </li>
-          <li className="search-box">
+          <div className="search-box">
             <input
               type="text"
               className="search-box__input"
               id="search"
               name="search"
+              placeholder="Search..."
             />
             <FaSearch className="search-box__icon" />
             <label htmlFor="search" />
-          </li>
+          </div>
         </ul>
-        <ul className="nav__list">
+        <ul className="nav__list nav__list">
           <li className="add-task">
             <FaPlus className="icon" />
           </li>

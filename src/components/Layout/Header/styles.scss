@@ -10,21 +10,45 @@
 
     &__list {
         display: flex;
+        align-items: center;
+        flex: 2;
         list-style: none;
+
+        &:last-of-type {
+            flex: 1;
+            justify-content: right;
+        }
     }
 
     .search-box {
         display: flex;
         align-items: center;
         position: relative;
-        background-color: $navbar-icons-bg-hover;
-        padding: 0;
+        flex: 2;
+        min-width: 80px;
+        max-width: 500px;
 
         &__input {
-            background-color: $navbar-icons-bg-hover;
-            height: 100%;
+            width: 100%;
+            padding: .5rem .3rem .5rem 2.5rem;
             border: none;
             border-radius: $border-radius;
+            color: $navbar-text-color;
+            background-color: $navbar-icons-bg-hover;
+            
+            &::placeholder {
+                color: inherit;
+                font-family: inherit;
+            }
+
+            &:hover, &:active, &:focus {
+                background-color: $navbar-icons-color;
+                color: $primary-text-color;
+                
+                & + .search-box__icon {
+                    fill: $primary-text-color;
+                }
+            }
         }
 
         &__icon {
